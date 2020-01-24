@@ -35,4 +35,8 @@ public class Cliente {
         return this;
     }
 
+    public String toString() {
+		return "{id: " + this.idCliente + ", nome: '" + this.nome + "'}";
+    	
+    }
 }

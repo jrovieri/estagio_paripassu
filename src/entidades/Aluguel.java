@@ -1,7 +1,10 @@
 package entidades;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Aluguel {
     private Integer idAluguel;
@@ -20,7 +23,14 @@ public class Aluguel {
         this.dataAluguel = dataAluguel;
         this.valor = valor;
     }
-
+    
+    public Aluguel(List<Filme> filmes, Cliente cliente, Date dataAluguel, float valor) {
+        this.filmes = filmes;
+        this.cliente = cliente;
+        this.dataAluguel = dataAluguel;
+        this.valor = valor;
+    }
+    
     public Integer getIdAluguel() {
         return idAluguel;
     }
@@ -65,4 +75,12 @@ public class Aluguel {
         this.valor = valor;
         return this;
     }
+    
+    public String toString() {
+    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    	String filmesString = this.filmes.stream().map(Filme::toString).collect(Collectors.joining(","));
+    	
+		return "{id: " + this.idAluguel + ", filmes: [" + filmesString + "], data_aluguel: " 
+			+ df.format(this.dataAluguel) + ", valor: " + this.valor;
+	}
 }

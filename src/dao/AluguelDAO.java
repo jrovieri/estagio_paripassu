@@ -13,7 +13,7 @@ public interface AluguelDAO {
 
     void edit(Connection conn, Aluguel aluguel) throws Exception;
 
-    void delete(Connection conn, Aluguel aluguel) throws Exception;
+    void delete(Connection conn, Integer idAluguel) throws Exception;
 
     Aluguel find(Connection conn, Integer idAluguel) throws Exception;
 

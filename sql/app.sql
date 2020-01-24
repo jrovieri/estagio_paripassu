@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS re_aluguel_filme;
+DROP TABLE IF EXISTS en_aluguel;
+DROP TABLE IF EXISTS en_cliente;
+DROP TABLE IF EXISTS en_filme;
+
+DROP SEQUENCE IF EXISTS seq_en_aluguel;
+DROP SEQUENCE IF EXISTS seq_en_cliente;
+DROP SEQUENCE IF EXISTS seq_en_filme;
+
 CREATE TABLE en_cliente (
   id_cliente INTEGER NOT NULL PRIMARY KEY,
   nome       TEXT    NOT NULL

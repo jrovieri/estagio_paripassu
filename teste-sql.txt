@@ -1,7 +1,22 @@
-Seu nome:
+Seu nome: Jonathan Rovieri Martins
 
-1)
+1) select * from en_filme order by data_lancamento asc limit 1
 
-2)
+2) select C.id_cliente, 
+		C.nome, 
+		count(A.id_aluguel) as alugueis 
+	from en_cliente as C 
+	left join en_aluguel as A on C.id_cliente = A.id_cliente 
+	group by C.id_cliente 
+	order by alugueis
 
-3)
+3) select C.id_cliente, 
+		C.nome, 
+		count(A.id_aluguel) as alugueis, 
+		sum(A.valor) as total_gasto, 
+		cast(date_part('year', A.data_aluguel) as varchar(4)) as ano
+	from en_cliente as C 
+	inner join en_aluguel as A on C.id_cliente = A.id_cliente 
+	group by A.data_aluguel, C.id_cliente 
+	order by total_gasto desc
+

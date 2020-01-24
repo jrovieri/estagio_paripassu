@@ -1,0 +1,3 @@
+A implementação de ClienteDAO veio pronta, segui o modelo desta para implementar FilmeDAO, considerando como alertado, a sequencia correta para cada entidade. A implementação de AluguelDAO é diferente pois implica em atualizar a tabela de relacionamento re_aluguel_filme. Os métodos insert e edit usam CROSS JOIN para projetar idAluguel em cada idFilme garantido a correta atualização da tabela.
+Modifiquei a interface AluguelDAO, especificamente o método 'delete' para receber como segundo parâmetro o id do objeto ao invés do objeto em si, mantendo uniformidade com as outras interfaces.
+O arquivo app.sql foi modificado para incluir drops antes da criação de tabelas e sequencia para facilitar os testes.

@@ -1,5 +1,7 @@
 package entidades;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Filme {
@@ -18,7 +20,13 @@ public class Filme {
         this.nome = nome;
         this.descricao = descricao;
     }
-
+    
+    public Filme(Date dataLancamento, String nome, String descricao) {
+        this.dataLancamento = dataLancamento;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+    
     public Integer getIdFilme() {
         return idFilme;
     }
@@ -53,5 +61,13 @@ public class Filme {
     public Filme setDescricao(String descricao) {
         this.descricao = descricao;
         return this;
+    }
+    
+    public String toString() {
+    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    	
+    	return "{id: " + this.idFilme + ", nome: '" + this.nome + "', data_lancamento: '" 
+    			+ df.format(this.dataLancamento) + "', descricao: '" + this.descricao + "'}";
+    	
     }
 }
